@@ -1,0 +1,77 @@
+description: kevin vs ponytail vs baseline benchmark
+
+providers:
+  - id: anthropic:messages:claude-haiku-4-5-20251001
+    label: haiku-baseline
+  - id: anthropic:messages:claude-haiku-4-5-20251001
+    label: haiku-ponytail
+    config:
+      system: "{{ponytailSkill}}"
+  - id: anthropic:messages:claude-haiku-4-5-20251001
+    label: haiku-kevin
+    config:
+      system: "{{kevinSkill}}"
+  - id: anthropic:messages:claude-sonnet-4-6
+    label: sonnet-baseline
+  - id: anthropic:messages:claude-sonnet-4-6
+    label: sonnet-ponytail
+    config:
+      system: "{{ponytailSkill}}"
+  - id: anthropic:messages:claude-sonnet-4-6
+    label: sonnet-kevin
+    config:
+      system: "{{kevinSkill}}"
+
+defaultTest:
+  options:
+    runTimes: 10
+
+tests:
+  - description: email validator
+    vars:
+      prompt: "Write an email validator function in Python."
+    assert:
+      - type: javascript
+        value: "output.split('\\n').length"
+        threshold: 50
+        label: lines_of_code
+      - type: javascript
+        value: "output.length"
+        label: total_chars
+
+  - description: debounce function
+    vars:
+      prompt: "Write a debounce function in JavaScript."
+    assert:
+      - type: javascript
+        value: "output.split('\\n').length"
+        label: lines_of_code
+      - type: javascript
+        value: "output.length"
+        label: total_chars
+
+  - description: csv sum
+    vars:
+      prompt: "Write a function that reads a CSV file and sums a numeric column in Python."
+    assert:
+      - type: javascript
+        value: "output.split('\\n').length"
+        label: lines_of_code
+
+  - description: countdown timer
+    vars:
+      prompt: "Write a countdown timer component in React."
+    assert:
+      - type: javascript
+        value: "output.split('\\n').length"
+        label: lines_of_code
+
+  - description: rate limiter
+    vars:
+      prompt: "Write a simple rate limiter in Python."
+    assert:
+      - type: javascript
+        value: "output.split('\\n').length"
+        label: lines_of_code
+
+outputPath: benchmarks/results.json

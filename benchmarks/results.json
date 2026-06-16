@@ -1,0 +1,738 @@
+{
+  "claude-haiku-4-5-20251001": {
+    "baseline": [
+      {
+        "task": "Write an email validator function in Python.",
+        "median_output_tokens": 1631,
+        "median_lines": 178,
+        "median_chars": 5071,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 1771,
+            "lines": 206,
+            "text": "# Email Validator Function in Python\n\nHere are several approaches, from simple to comprehensive:\n\n## 1. **Simple Regex Validator** (Basic)\n\n```python\nimport re\n\ndef is_valid_email_simple(email):\n    \"\"\"\n    Simple email validation using regex.\n    \"\"\"\n    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]"
+          },
+          {
+            "tokens": 1631,
+            "lines": 178,
+            "text": "# Email Validator Function in Python\n\nHere are several approaches, from simple to comprehensive:\n\n## 1. **Basic Regex Validator** (Simple)\n\n```python\nimport re\n\ndef is_valid_email(email):\n    \"\"\"\n    Basic email validation using regex.\n    \"\"\"\n    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA"
+          },
+          {
+            "tokens": 1486,
+            "lines": 157,
+            "text": "# Email Validator Function in Python\n\nHere are several approaches, from simple to comprehensive:\n\n## 1. Basic Regex Validation (Simple)\n\n```python\nimport re\n\ndef validate_email_basic(email):\n    \"\"\"\n    Basic email validation using regex.\n    Returns True if valid, False otherwise.\n    \"\"\"\n    patte"
+          }
+        ]
+      },
+      {
+        "task": "Write a debounce function in JavaScript.",
+        "median_output_tokens": 1159,
+        "median_lines": 163,
+        "median_chars": 3847,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 1247,
+            "lines": 194,
+            "text": "# Debounce Function in JavaScript\n\nHere are several implementations, from basic to advanced:\n\n## 1. Basic Debounce (Simple)\n\n```javascript\nfunction debounce(func, delay) {\n  let timeoutId;\n  \n  return function(...args) {\n    clearTimeout(timeoutId);\n    timeoutId = setTimeout(() => {\n      func(...a"
+          },
+          {
+            "tokens": 927,
+            "lines": 147,
+            "text": "# Debounce Function in JavaScript\n\nHere's a comprehensive implementation of a debounce function:\n\n## Basic Implementation\n\n```javascript\nfunction debounce(func, delay) {\n  let timeoutId;\n  \n  return function (...args) {\n    clearTimeout(timeoutId);\n    timeoutId = setTimeout(() => {\n      func.apply"
+          },
+          {
+            "tokens": 1159,
+            "lines": 163,
+            "text": "# Debounce Function in JavaScript\n\nHere's a comprehensive implementation:\n\n## Basic Version\n\n```javascript\nfunction debounce(func, delay) {\n  let timeoutId;\n  \n  return function debounced(...args) {\n    clearTimeout(timeoutId);\n    timeoutId = setTimeout(() => {\n      func.apply(this, args);\n    }, "
+          }
+        ]
+      },
+      {
+        "task": "Write a function that reads a CSV file and sums a numeric column in Python.",
+        "median_output_tokens": 1309,
+        "median_lines": 169,
+        "median_chars": 4451,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 1365,
+            "lines": 182,
+            "text": "# Function to Read CSV and Sum a Numeric Column\n\nHere are several approaches, from simple to more robust:\n\n## 1. **Basic Using Built-in `csv` Module**\n\n```python\nimport csv\n\ndef sum_csv_column(filename, column_name):\n    \"\"\"\n    Read a CSV file and sum a numeric column.\n    \n    Args:\n        filena"
+          },
+          {
+            "tokens": 1309,
+            "lines": 169,
+            "text": "# Function to Read CSV and Sum a Numeric Column\n\nHere are several approaches, from simple to more robust:\n\n## 1. **Basic Approach (using CSV module)**\n\n```python\nimport csv\n\ndef sum_csv_column(filename, column_name):\n    \"\"\"\n    Read a CSV file and sum a numeric column.\n    \n    Args:\n        filena"
+          },
+          {
+            "tokens": 1285,
+            "lines": 169,
+            "text": "# Function to Read CSV and Sum a Numeric Column\n\nHere are several approaches, from simple to more robust:\n\n## 1. **Basic Approach (Using built-in `csv` module)**\n\n```python\nimport csv\n\ndef sum_csv_column(filename, column_name):\n    \"\"\"\n    Reads a CSV file and sums a numeric column.\n    \n    Args:\n "
+          }
+        ]
+      },
+      {
+        "task": "Write a countdown timer component in React.",
+        "median_output_tokens": 2048,
+        "median_lines": 269,
+        "median_chars": 6424,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 2010,
+            "lines": 271,
+            "text": "# React Countdown Timer Component\n\nHere's a complete countdown timer component with multiple variations:\n\n## Basic Countdown Timer\n\n```jsx\nimport React, { useState, useEffect } from 'react';\n\nconst CountdownTimer = ({ initialSeconds = 60, onComplete }) => {\n  const [seconds, setSeconds] = useState(i"
+          },
+          {
+            "tokens": 2048,
+            "lines": 269,
+            "text": "# React Countdown Timer Component\n\nHere's a comprehensive countdown timer component with multiple examples:\n\n## Basic Countdown Timer\n\n```jsx\nimport React, { useState, useEffect } from 'react';\n\nconst CountdownTimer = ({ initialSeconds = 60, onComplete = null }) => {\n  const [seconds, setSeconds] = "
+          },
+          {
+            "tokens": 2048,
+            "lines": 229,
+            "text": "# React Countdown Timer Component\n\nHere's a comprehensive countdown timer component with multiple variants:\n\n## Basic Countdown Timer\n\n```jsx\nimport { useState, useEffect } from 'react';\n\nexport default function CountdownTimer({ initialSeconds = 60, onComplete }) {\n  const [seconds, setSeconds] = us"
+          }
+        ]
+      },
+      {
+        "task": "Write a simple rate limiter in Python.",
+        "median_output_tokens": 1678,
+        "median_lines": 237,
+        "median_chars": 5967,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 1783,
+            "lines": 239,
+            "text": "# Simple Rate Limiter in Python\n\nHere are several implementations, from basic to advanced:\n\n## 1. **Simple Token Bucket (Basic)**\n\n```python\nimport time\nfrom collections import defaultdict\n\nclass SimpleRateLimiter:\n    def __init__(self, max_requests, time_window):\n        \"\"\"\n        Args:\n        "
+          },
+          {
+            "tokens": 1557,
+            "lines": 204,
+            "text": "# Simple Rate Limiter in Python\n\nHere's a practical rate limiter implementation with multiple approaches:\n\n## 1. **Basic Token Bucket (Recommended)**\n\n```python\nimport time\nfrom threading import Lock\n\nclass TokenBucket:\n    def __init__(self, capacity, refill_rate):\n        \"\"\"\n        Args:\n       "
+          },
+          {
+            "tokens": 1678,
+            "lines": 237,
+            "text": "# Simple Rate Limiter in Python\n\nHere are a few implementations, from basic to more advanced:\n\n## 1. **Token Bucket (Most Common)**\n\n```python\nimport time\nfrom threading import Lock\n\nclass TokenBucket:\n    \"\"\"Token bucket rate limiter\"\"\"\n    \n    def __init__(self, capacity, refill_rate):\n        \"\""
+          }
+        ]
+      }
+    ],
+    "ponytail": [
+      {
+        "task": "Write an email validator function in Python.",
+        "median_output_tokens": 163,
+        "median_lines": 15,
+        "median_chars": 526,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 130,
+            "lines": 11,
+            "text": "```python\nimport re\n\ndef is_valid_email(email: str) -> bool:\n    return bool(re.match(r'^[^@]+@[^@]+\\.[^@]+$', email))\n```\n\n**What was skipped:**\n- RFC 5322 full spec (overkill for 99% of cases; use `email-validator` package only if you actually need to verify mailbox existence)\n- Hostname validatio"
+          },
+          {
+            "tokens": 163,
+            "lines": 15,
+            "text": "```python\nimport re\n\ndef is_valid_email(email: str) -> bool:\n    return bool(re.match(r'^[^@]+@[^@]+\\.[^@]+$', email))\n```\n\n**What was skipped:**\n- RFC 5322 full compliance (90% of cases don't need it; add if you're validating user signups at scale)\n- Regex complexity for quoted strings, multiple do"
+          },
+          {
+            "tokens": 173,
+            "lines": 16,
+            "text": "```python\nimport re\n\ndef is_valid_email(email: str) -> bool:\n    return bool(re.match(r'^[^@]+@[^@]+\\.[^@]+$', email))\n```\n\n**What was skipped:**\n- RFC 5322 full spec (99% overkill, breaks real emails)\n- DNS validation (requires network calls, adds latency)\n- Exotic unicode handling (build it if you"
+          }
+        ]
+      },
+      {
+        "task": "Write a debounce function in JavaScript.",
+        "median_output_tokens": 153,
+        "median_lines": 21,
+        "median_chars": 511,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 153,
+            "lines": 21,
+            "text": "```javascript\nfunction debounce(fn, delay) {\n  let timeout;\n  return function(...args) {\n    clearTimeout(timeout);\n    timeout = setTimeout(() => fn(...args), delay);\n  };\n}\n```\n\nThat's it. Use it:\n```javascript\nconst search = debounce((query) => console.log(query), 300);\nsearch(\"hello\");\nsearch(\"h"
+          },
+          {
+            "tokens": 113,
+            "lines": 14,
+            "text": "```javascript\nfunction debounce(fn, delay) {\n  let timeout;\n  return function(...args) {\n    clearTimeout(timeout);\n    timeout = setTimeout(() => fn(...args), delay);\n  };\n}\n```\n\n**What was skipped:**\n- No trailing/leading edge options (add if you need them)\n- No max wait time (add if calls should "
+          },
+          {
+            "tokens": 205,
+            "lines": 24,
+            "text": "```javascript\nfunction debounce(fn, delay) {\n  let timeout;\n  return function(...args) {\n    clearTimeout(timeout);\n    timeout = setTimeout(() => fn(...args), delay);\n  };\n}\n```\n\n**That's it.** Use it:\n\n```javascript\nconst handleSearch = debounce((query) => {\n  console.log('Searching:', query);\n}, "
+          }
+        ]
+      },
+      {
+        "task": "Write a function that reads a CSV file and sums a numeric column in Python.",
+        "median_output_tokens": 116,
+        "median_lines": 12,
+        "median_chars": 417,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 103,
+            "lines": 12,
+            "text": "```python\nimport csv\n\ndef sum_csv_column(filename, column_name):\n    with open(filename) as f:\n        return sum(float(row[column_name]) for row in csv.DictReader(f))\n```\n\n**What was skipped:**\n- Error handling (add if untrusted data)\n- Type validation (add if column contains non-numeric)\n- Encodin"
+          },
+          {
+            "tokens": 116,
+            "lines": 11,
+            "text": "```python\nimport csv\n\ndef sum_column(filename, column_name):\n    with open(filename) as f:\n        return sum(float(row[column_name]) for row in csv.DictReader(f))\n```\n\nThat's it. One function, one import, done.\n\n**What's skipped:** Error handling (missing files, non-numeric values, missing column)."
+          },
+          {
+            "tokens": 116,
+            "lines": 13,
+            "text": "```python\nimport csv\n\ndef sum_column(filepath, column_name):\n    with open(filepath) as f:\n        return sum(float(row[column_name]) for row in csv.DictReader(f))\n```\n\nDone. That's it.\n\n**What was skipped:** error handling (file not found, invalid numbers), type validation, empty file checks.\n\n**Wh"
+          }
+        ]
+      },
+      {
+        "task": "Write a countdown timer component in React.",
+        "median_output_tokens": 265,
+        "median_lines": 35,
+        "median_chars": 858,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 299,
+            "lines": 35,
+            "text": "```jsx\nimport { useState, useEffect } from 'react';\n\nexport default function CountdownTimer({ initialSeconds = 60, onComplete }) {\n  const [seconds, setSeconds] = useState(initialSeconds);\n\n  useEffect(() => {\n    if (seconds <= 0) {\n      onComplete?.();\n      return;\n    }\n    const timer = setTim"
+          },
+          {
+            "tokens": 202,
+            "lines": 23,
+            "text": "```jsx\nimport { useState, useEffect } from 'react';\n\nexport default function Countdown({ seconds = 60, onEnd }) {\n  const [time, setTime] = useState(seconds);\n\n  useEffect(() => {\n    if (time <= 0) {\n      onEnd?.();\n      return;\n    }\n    const timer = setInterval(() => setTime(t => t - 1), 1000)"
+          },
+          {
+            "tokens": 265,
+            "lines": 35,
+            "text": "```jsx\nimport { useState, useEffect } from 'react';\n\nexport default function CountdownTimer({ initialSeconds = 60, onComplete }) {\n  const [seconds, setSeconds] = useState(initialSeconds);\n\n  useEffect(() => {\n    if (seconds <= 0) {\n      onComplete?.();\n      return;\n    }\n    const timer = setTim"
+          }
+        ]
+      },
+      {
+        "task": "Write a simple rate limiter in Python.",
+        "median_output_tokens": 283,
+        "median_lines": 32,
+        "median_chars": 944,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 294,
+            "lines": 37,
+            "text": "```python\nfrom time import time\nfrom collections import defaultdict\n\nclass RateLimiter:\n    def __init__(self, max_calls, time_window):\n        self.max_calls = max_calls\n        self.time_window = time_window\n        self.calls = defaultdict(list)\n    \n    def is_allowed(self, key):\n        now = t"
+          },
+          {
+            "tokens": 270,
+            "lines": 31,
+            "text": "```python\nfrom time import time\nfrom collections import defaultdict\n\nclass RateLimiter:\n    def __init__(self, max_calls, window_seconds):\n        self.max_calls = max_calls\n        self.window = window_seconds\n        self.calls = defaultdict(list)\n    \n    def is_allowed(self, key):\n        now = "
+          },
+          {
+            "tokens": 283,
+            "lines": 32,
+            "text": "```python\nfrom time import time\nfrom collections import defaultdict\n\nclass RateLimiter:\n    def __init__(self, max_calls, window_seconds):\n        self.max_calls = max_calls\n        self.window = window_seconds\n        self.calls = defaultdict(list)\n    \n    def is_allowed(self, key):\n        now = "
+          }
+        ]
+      }
+    ],
+    "kevin": [
+      {
+        "task": "Write an email validator function in Python.",
+        "median_output_tokens": 109,
+        "median_lines": 9,
+        "median_chars": 272,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 114,
+            "lines": 9,
+            "text": "```python\nimport re\n\ndef validate_email(email: str) -> bool:\n    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'\n    return bool(re.match(pattern, email))\n```\n\nKept simple: regex only, catch 99% of cases. Add when need SMTP check or RFCs 5321/5322 compliance."
+          },
+          {
+            "tokens": 109,
+            "lines": 9,
+            "text": "```python\nimport re\n\ndef validate_email(email: str) -> bool:\n    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'\n    return re.match(pattern, email) is not None\n```\n\nKept simple: regex only. Add when need: SMTP check, DNS lookup, or RFC 5322 full compliance."
+          },
+          {
+            "tokens": 99,
+            "lines": 9,
+            "text": "```python\nimport re\n\ndef validate_email(email: str) -> bool:\n    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'\n    return bool(re.match(pattern, email))\n```\n\nKept simple: regex check only. Add when need DNS validation or SMTP verification."
+          }
+        ]
+      },
+      {
+        "task": "Write a debounce function in JavaScript.",
+        "median_output_tokens": 80,
+        "median_lines": 11,
+        "median_chars": 276,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 78,
+            "lines": 11,
+            "text": "```javascript\nfunction debounce(fn, delay) {\n  let timeout;\n  return function(...args) {\n    clearTimeout(timeout);\n    timeout = setTimeout(() => fn(...args), delay);\n  };\n}\n```\n\nKept simple: no options, no leading edge. Add when need immediate first call or cancel ability."
+          },
+          {
+            "tokens": 80,
+            "lines": 11,
+            "text": "```javascript\nfunction debounce(fn, delay) {\n  let timeout;\n  return function(...args) {\n    clearTimeout(timeout);\n    timeout = setTimeout(() => fn(...args), delay);\n  };\n}\n```\n\nKept simple: no options, fire on trailing edge only. Add `leading` flag when need immediate call."
+          },
+          {
+            "tokens": 80,
+            "lines": 11,
+            "text": "```javascript\nfunction debounce(fn, delay) {\n  let timeout;\n  return function(...args) {\n    clearTimeout(timeout);\n    timeout = setTimeout(() => fn(...args), delay);\n  };\n}\n```\n\nKept simple: no leading edge, no maxWait. Add when need fire immediately or guarantee max delay."
+          }
+        ]
+      },
+      {
+        "task": "Write a function that reads a CSV file and sums a numeric column in Python.",
+        "median_output_tokens": 91,
+        "median_lines": 13,
+        "median_chars": 299,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 95,
+            "lines": 13,
+            "text": "```python\nimport csv\n\ndef sum_column(filename, column_name):\n    total = 0\n    with open(filename) as f:\n        reader = csv.DictReader(f)\n        for row in reader:\n            total += float(row[column_name])\n    return total\n```\n\nkept simple: assume valid CSV, no missing values. add error handli"
+          },
+          {
+            "tokens": 91,
+            "lines": 13,
+            "text": "```python\nimport csv\n\ndef sum_column(filepath, column_name):\n    total = 0\n    with open(filepath) as f:\n        reader = csv.DictReader(f)\n        for row in reader:\n            total += float(row[column_name])\n    return total\n```\n\nDone. Pass filepath and column name. Read, convert, sum. That it."
+          },
+          {
+            "tokens": 85,
+            "lines": 13,
+            "text": "```python\nimport csv\n\ndef sum_column(filepath, column_name):\n    total = 0\n    with open(filepath) as f:\n        reader = csv.DictReader(f)\n        for row in reader:\n            total += float(row[column_name])\n    return total\n```\n\nDone. Pass filepath and column name. Return sum."
+          }
+        ]
+      },
+      {
+        "task": "Write a countdown timer component in React.",
+        "median_output_tokens": 241,
+        "median_lines": 29,
+        "median_chars": 733,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 219,
+            "lines": 27,
+            "text": "```jsx\nimport { useState, useEffect } from 'react';\n\nexport function CountdownTimer({ seconds = 60, onComplete }) {\n  const [time, setTime] = useState(seconds);\n\n  useEffect(() => {\n    if (time <= 0) {\n      onComplete?.();\n      return;\n    }\n    const timer = setTimeout(() => setTime(time - 1), 1"
+          },
+          {
+            "tokens": 368,
+            "lines": 44,
+            "text": "```tsx\nimport { useState, useEffect } from 'react';\n\nexport function CountdownTimer({ initialSeconds = 60, onComplete }) {\n  const [seconds, setSeconds] = useState(initialSeconds);\n  const [isActive, setIsActive] = useState(false);\n\n  useEffect(() => {\n    if (!isActive || seconds <= 0) return;\n    "
+          },
+          {
+            "tokens": 241,
+            "lines": 29,
+            "text": "```jsx\nimport { useState, useEffect } from 'react';\n\nexport function CountdownTimer({ initialSeconds = 60, onComplete }) {\n  const [seconds, setSeconds] = useState(initialSeconds);\n\n  useEffect(() => {\n    if (seconds <= 0) {\n      onComplete?.();\n      return;\n    }\n\n    const timer = setInterval(("
+          }
+        ]
+      },
+      {
+        "task": "Write a simple rate limiter in Python.",
+        "median_output_tokens": 276,
+        "median_lines": 30,
+        "median_chars": 919,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 276,
+            "lines": 30,
+            "text": "```python\nfrom time import time\nfrom collections import defaultdict\n\nclass RateLimiter:\n    def __init__(self, max_calls, window_seconds):\n        self.max_calls = max_calls\n        self.window = window_seconds\n        self.calls = defaultdict(list)\n    \n    def allow(self, key):\n        now = time("
+          },
+          {
+            "tokens": 258,
+            "lines": 27,
+            "text": "```python\nfrom time import time\nfrom collections import defaultdict\n\nclass RateLimiter:\n    def __init__(self, max_requests, window_seconds):\n        self.max_requests = max_requests\n        self.window_seconds = window_seconds\n        self.requests = defaultdict(list)\n    \n    def is_allowed(self, "
+          },
+          {
+            "tokens": 312,
+            "lines": 31,
+            "text": "```python\nfrom time import time\nfrom collections import defaultdict\n\nclass RateLimiter:\n    def __init__(self, max_calls, window_sec):\n        self.max_calls = max_calls\n        self.window_sec = window_sec\n        self.calls = defaultdict(list)\n    \n    def allow(self, key):\n        now = time()\n  "
+          }
+        ]
+      }
+    ]
+  },
+  "claude-sonnet-4-6": {
+    "baseline": [
+      {
+        "task": "Write an email validator function in Python.",
+        "median_output_tokens": 1851,
+        "median_lines": 182,
+        "median_chars": 6303,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 1851,
+            "lines": 201,
+            "text": "## Email Validator Function in Python\n\nHere's a comprehensive email validator function that checks for valid email format:\n\n```python\nimport re\n\n\ndef validate_email(email: str) -> dict:\n    \"\"\"\n    Validates an email address and returns a detailed result.\n\n    Args:\n        email: The email address "
+          },
+          {
+            "tokens": 1809,
+            "lines": 171,
+            "text": "## Email Validator Function in Python\n\nHere's a comprehensive email validator function that checks for valid email format using both regex and additional validation logic:\n\n```python\nimport re\n\n\ndef validate_email(email: str) -> dict:\n    \"\"\"\n    Validates an email address and returns a dictionary w"
+          },
+          {
+            "tokens": 2048,
+            "lines": 182,
+            "text": "## Email Validator Function in Python\n\nHere's a comprehensive email validator function that checks for various email format rules:\n\n```python\nimport re\n\n\ndef validate_email(email: str) -> dict:\n    \"\"\"\n    Validates an email address and returns a dictionary with:\n    - is_valid (bool): Whether the e"
+          }
+        ]
+      },
+      {
+        "task": "Write a debounce function in JavaScript.",
+        "median_output_tokens": 1051,
+        "median_lines": 146,
+        "median_chars": 3503,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 1051,
+            "lines": 146,
+            "text": "## Debounce Function in JavaScript\n\nA debounce function limits the rate at which a function is called by delaying its execution until after a specified wait time has elapsed since the last invocation.\n\n### Basic Implementation\n\n```javascript\nfunction debounce(func, wait) {\n  let timeoutId = null;\n\n "
+          },
+          {
+            "tokens": 1067,
+            "lines": 151,
+            "text": "## Debounce Function in JavaScript\n\nA debounce function limits the rate at which a function can fire by delaying its execution until after a specified wait time has elapsed since the last time it was called.\n\n### Basic Implementation\n\n```javascript\nfunction debounce(func, delay) {\n  let timeoutId;\n\n"
+          },
+          {
+            "tokens": 822,
+            "lines": 116,
+            "text": "## Debounce Function in JavaScript\n\nA debounce function limits the rate at which a function can fire by delaying its execution until after a specified wait time has elapsed since the last call.\n\n### Basic Implementation\n\n```javascript\nfunction debounce(func, delay) {\n  let timeoutId;\n\n  return funct"
+          }
+        ]
+      },
+      {
+        "task": "Write a function that reads a CSV file and sums a numeric column in Python.",
+        "median_output_tokens": 1136,
+        "median_lines": 137,
+        "median_chars": 3994,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 1187,
+            "lines": 137,
+            "text": "## Reading a CSV File and Summing a Numeric Column in Python\n\n### Implementation\n\n```python\nimport csv\nfrom pathlib import Path\n\n\ndef sum_csv_column(\n    file_path: str,\n    column_name: str,\n    delimiter: str = \",\",\n    skip_errors: bool = False,\n) -> float:\n    \"\"\"\n    Read a CSV file and sum the"
+          },
+          {
+            "tokens": 1136,
+            "lines": 143,
+            "text": "## Reading and Summing a CSV Column in Python\n\nHere's a clean, well-documented function with error handling:\n\n```python\nimport csv\nfrom pathlib import Path\n\n\ndef sum_csv_column(\n    file_path: str,\n    column_name: str,\n    delimiter: str = \",\",\n    skip_errors: bool = False,\n) -> float:\n    \"\"\"\n   "
+          },
+          {
+            "tokens": 1103,
+            "lines": 132,
+            "text": "## Reading and Summing a CSV Column in Python\n\n### Basic Implementation\n\n```python\nimport csv\n\ndef sum_csv_column(file_path: str, column_name: str) -> float:\n    \"\"\"\n    Reads a CSV file and sums a numeric column.\n\n    Args:\n        file_path: Path to the CSV file.\n        column_name: Name of the c"
+          }
+        ]
+      },
+      {
+        "task": "Write a countdown timer component in React.",
+        "median_output_tokens": 2048,
+        "median_lines": 247,
+        "median_chars": 6242,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 2048,
+            "lines": 237,
+            "text": "# Countdown Timer Component in React\n\n## Overview\nA fully-featured countdown timer with start, pause, and reset controls, built using React hooks.\n\n## Component Code\n\n```jsx\nimport React, { useState, useEffect, useRef, useCallback } from \"react\";\n\nconst CountdownTimer = () => {\n  const [totalSeconds"
+          },
+          {
+            "tokens": 2048,
+            "lines": 247,
+            "text": "## Countdown Timer Component in React\n\nHere's a clean, reusable countdown timer component with start, pause, and reset functionality.\n\n### Component Code\n\n```jsx\nimport React, { useState, useEffect, useRef, useCallback } from \"react\";\n\nconst CountdownTimer = ({ initialTime = 60 }) => {\n  const [time"
+          },
+          {
+            "tokens": 2048,
+            "lines": 250,
+            "text": "## Countdown Timer Component in React\n\nHere's a fully functional countdown timer component with start, pause, and reset controls:\n\n```jsx\nimport React, { useState, useEffect, useRef } from \"react\";\n\nconst CountdownTimer = () => {\n  const [timeLeft, setTimeLeft] = useState(0);\n  const [isRunning, set"
+          }
+        ]
+      },
+      {
+        "task": "Write a simple rate limiter in Python.",
+        "median_output_tokens": 1327,
+        "median_lines": 160,
+        "median_chars": 4391,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 1449,
+            "lines": 177,
+            "text": "# Simple Rate Limiter in Python\n\nHere's a clean implementation with multiple approaches:\n\n## 1. Basic Token Bucket Rate Limiter\n\n```python\nimport time\nimport threading\nfrom functools import wraps\n\n\nclass RateLimiter:\n    \"\"\"Token bucket rate limiter.\"\"\"\n\n    def __init__(self, max_calls: int, period"
+          },
+          {
+            "tokens": 1066,
+            "lines": 137,
+            "text": "## Simple Rate Limiter in Python\n\nHere's a clean implementation of a rate limiter using the **sliding window** algorithm:\n\n```python\nimport time\nfrom collections import deque\nfrom threading import Lock\n\n\nclass RateLimiter:\n    \"\"\"\n    A thread-safe sliding window rate limiter.\n\n    Allows up to `max"
+          },
+          {
+            "tokens": 1327,
+            "lines": 160,
+            "text": "## Simple Rate Limiter in Python\n\nHere's a clean implementation using a sliding window algorithm:\n\n```python\nimport time\nfrom collections import deque\nfrom threading import Lock\n\n\nclass RateLimiter:\n    \"\"\"\n    A thread-safe sliding window rate limiter.\n\n    Args:\n        max_calls (int): Maximum nu"
+          }
+        ]
+      }
+    ],
+    "ponytail": [
+      {
+        "task": "Write an email validator function in Python.",
+        "median_output_tokens": 91,
+        "median_lines": 10,
+        "median_chars": 267,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 105,
+            "lines": 8,
+            "text": "```python\nimport re\n\ndef is_valid_email(email: str) -> bool:\n    return bool(re.match(r'^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$', email))\n```\n\nSkipped: RFC 5322 full compliance, internationalized domains (IDN). Add them if you're validating user input from global audiences \u2014 otherwise this covers 99% of real-wor"
+          },
+          {
+            "tokens": 91,
+            "lines": 10,
+            "text": "```python\nimport re\n\ndef is_valid_email(email: str) -> bool:\n    return bool(re.match(r\"[^@]+@[^@]+\\.[^@]+\", email))\n```\n\n---\n\nSkipped: RFC 5322 full compliance, MX record lookup, disposable domain blocking \u2014 add those if you're validating at signup with real stakes."
+          },
+          {
+            "tokens": 90,
+            "lines": 10,
+            "text": "```python\nimport re\n\ndef is_valid_email(email: str) -> bool:\n    return bool(re.match(r\"[^@]+@[^@]+\\.[^@]+\", email))\n```\n\n---\n\nSkipped: RFC 5322 full compliance, MX record checks, internationalized domains \u2014 add if you're validating untrusted input at scale."
+          }
+        ]
+      },
+      {
+        "task": "Write a debounce function in JavaScript.",
+        "median_output_tokens": 57,
+        "median_lines": 9,
+        "median_chars": 159,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 57,
+            "lines": 9,
+            "text": "```js\nfunction debounce(fn, delay) {\n  let timer;\n  return (...args) => {\n    clearTimeout(timer);\n    timer = setTimeout(() => fn(...args), delay);\n  };\n}\n```"
+          },
+          {
+            "tokens": 57,
+            "lines": 9,
+            "text": "```js\nfunction debounce(fn, delay) {\n  let timer;\n  return (...args) => {\n    clearTimeout(timer);\n    timer = setTimeout(() => fn(...args), delay);\n  };\n}\n```"
+          },
+          {
+            "tokens": 57,
+            "lines": 9,
+            "text": "```js\nfunction debounce(fn, delay) {\n  let timer;\n  return (...args) => {\n    clearTimeout(timer);\n    timer = setTimeout(() => fn(...args), delay);\n  };\n}\n```"
+          }
+        ]
+      },
+      {
+        "task": "Write a function that reads a CSV file and sums a numeric column in Python.",
+        "median_output_tokens": 115,
+        "median_lines": 14,
+        "median_chars": 366,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 116,
+            "lines": 16,
+            "text": "```python\nimport csv\n\ndef sum_column(filepath, column):\n    with open(filepath, newline='') as f:\n        return sum(float(row[column]) for row in csv.DictReader(f))\n```\n\n**Usage:**\n```python\ntotal = sum_column(\"data.csv\", \"price\")\n```\n\n---\n\nSkipped: error handling for missing/non-numeric values \u2014 a"
+          },
+          {
+            "tokens": 114,
+            "lines": 14,
+            "text": "```python\nimport csv\n\ndef sum_column(filepath, column):\n    with open(filepath, newline=\"\") as f:\n        return sum(float(row[column]) for row in csv.DictReader(f))\n```\n\n**Usage:**\n```python\ntotal = sum_column(\"data.csv\", \"price\")\n```\n\nWorks with both column name (string) or index (int) if you swap"
+          },
+          {
+            "tokens": 115,
+            "lines": 14,
+            "text": "```python\nimport csv\n\ndef sum_column(filepath, column):\n    with open(filepath, newline=\"\") as f:\n        return sum(float(row[column]) for row in csv.DictReader(f))\n```\n\n**Usage:**\n```python\ntotal = sum_column(\"data.csv\", \"price\")\n```\n\nSkipped: error handling for missing/non-numeric values \u2014 add `i"
+          }
+        ]
+      },
+      {
+        "task": "Write a countdown timer component in React.",
+        "median_output_tokens": 220,
+        "median_lines": 22,
+        "median_chars": 667,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 241,
+            "lines": 24,
+            "text": "```jsx\nimport { useState, useEffect } from 'react';\n\nexport default function Countdown({ seconds = 60, onDone }) {\n  const [left, setLeft] = useState(seconds);\n\n  useEffect(() => {\n    if (left <= 0) return void onDone?.();\n    const id = setTimeout(() => setLeft(l => l - 1), 1000);\n    return () =>"
+          },
+          {
+            "tokens": 205,
+            "lines": 20,
+            "text": "```jsx\nimport { useState, useEffect } from 'react';\n\nexport default function Countdown({ seconds = 60, onDone }) {\n  const [remaining, setRemaining] = useState(seconds);\n\n  useEffect(() => {\n    if (remaining <= 0) { onDone?.(); return; }\n    const id = setTimeout(() => setRemaining(r => r - 1), 100"
+          },
+          {
+            "tokens": 220,
+            "lines": 22,
+            "text": "```jsx\nimport { useState, useEffect } from 'react';\n\nexport default function Countdown({ seconds = 60, onComplete }) {\n  const [time, setTime] = useState(seconds);\n\n  useEffect(() => {\n    if (time <= 0) return void onComplete?.();\n    const id = setInterval(() => setTime(t => t - 1), 1000);\n    ret"
+          }
+        ]
+      },
+      {
+        "task": "Write a simple rate limiter in Python.",
+        "median_output_tokens": 203,
+        "median_lines": 26,
+        "median_chars": 690,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 203,
+            "lines": 26,
+            "text": "```python\nimport time\nfrom collections import deque\n\ndef make_rate_limiter(max_calls, period):\n    timestamps = deque()\n    def allow():\n        now = time.monotonic()\n        while timestamps and now - timestamps[0] > period:\n            timestamps.popleft()\n        if len(timestamps) < max_calls:\n"
+          },
+          {
+            "tokens": 200,
+            "lines": 26,
+            "text": "```python\nimport time\nfrom collections import deque\n\ndef make_rate_limiter(max_calls, period):\n    calls = deque()\n    def allow():\n        now = time.monotonic()\n        while calls and now - calls[0] >= period:\n            calls.popleft()\n        if len(calls) < max_calls:\n            calls.append"
+          },
+          {
+            "tokens": 235,
+            "lines": 35,
+            "text": "```python\nimport time\nfrom collections import deque\n\ndef make_rate_limiter(max_calls, period):\n    \"\"\"Returns a rate limiter that allows max_calls per period (seconds).\"\"\"\n    calls = deque()\n\n    def rate_limited():\n        now = time.monotonic()\n        while calls and now - calls[0] >= period:\n  "
+          }
+        ]
+      }
+    ],
+    "kevin": [
+      {
+        "task": "Write an email validator function in Python.",
+        "median_output_tokens": 84,
+        "median_lines": 8,
+        "median_chars": 222,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 77,
+            "lines": 8,
+            "text": "```python\nimport re\n\ndef is_valid_email(email: str) -> bool:\n    return bool(re.match(r'^[\\w.+-]+@[\\w-]+\\.[\\w.]+$', email))\n```\n\nWorks for standard emails. Add IDNA/DNS check when you need to verify domain actually exists."
+          },
+          {
+            "tokens": 84,
+            "lines": 8,
+            "text": "```python\nimport re\n\ndef is_valid_email(email: str) -> bool:\n    return bool(re.match(r'^[\\w.+-]+@[\\w-]+\\.[\\w.]+$', email))\n```\n\nSimple regex. Add stricter RFC 5322 parsing when you need to reject edge cases like `a@b.c.`."
+          },
+          {
+            "tokens": 85,
+            "lines": 8,
+            "text": "```python\nimport re\n\ndef is_valid_email(email: str) -> bool:\n    return bool(re.match(r'^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$', email))\n```\n\nstdlib `re`. No deps. \u2192 kept simple: no IDN/quoted-local support, add when needed."
+          }
+        ]
+      },
+      {
+        "task": "Write a debounce function in JavaScript.",
+        "median_output_tokens": 84,
+        "median_lines": 14,
+        "median_chars": 250,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 84,
+            "lines": 14,
+            "text": "```javascript\nfunction debounce(fn, ms) {\n  let timer;\n  return (...args) => {\n    clearTimeout(timer);\n    timer = setTimeout(() => fn(...args), ms);\n  };\n}\n```\n\nUse it:\n```javascript\nconst save = debounce(() => console.log('saved'), 300);\n```"
+          },
+          {
+            "tokens": 88,
+            "lines": 17,
+            "text": "```javascript\nfunction debounce(fn, delay) {\n  let timer;\n  return (...args) => {\n    clearTimeout(timer);\n    timer = setTimeout(() => fn(...args), delay);\n  };\n}\n```\n\nUse it:\n\n```javascript\nconst save = debounce(() => console.log(\"saved\"), 300);\n```\n\nThat it."
+          },
+          {
+            "tokens": 84,
+            "lines": 14,
+            "text": "```javascript\nfunction debounce(fn, delay) {\n  let timer;\n  return (...args) => {\n    clearTimeout(timer);\n    timer = setTimeout(() => fn(...args), delay);\n  };\n}\n```\n\nUse it:\n```javascript\nconst save = debounce(() => console.log('saved'), 300);\n```"
+          }
+        ]
+      },
+      {
+        "task": "Write a function that reads a CSV file and sums a numeric column in Python.",
+        "median_output_tokens": 72,
+        "median_lines": 9,
+        "median_chars": 212,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 72,
+            "lines": 9,
+            "text": "```python\nimport csv\n\ndef sum_column(filepath, column):\n    with open(filepath, newline=\"\") as f:\n        return sum(float(row[column]) for row in csv.DictReader(f))\n```\n\nUsage: `sum_column(\"data.csv\", \"amount\")`"
+          },
+          {
+            "tokens": 72,
+            "lines": 9,
+            "text": "```python\nimport csv\n\ndef sum_column(filepath, column):\n    with open(filepath, newline=\"\") as f:\n        return sum(float(row[column]) for row in csv.DictReader(f))\n```\n\nUsage: `sum_column(\"data.csv\", \"amount\")`"
+          },
+          {
+            "tokens": 72,
+            "lines": 9,
+            "text": "```python\nimport csv\n\ndef sum_column(filepath, column):\n    with open(filepath, newline=\"\") as f:\n        return sum(float(row[column]) for row in csv.DictReader(f))\n```\n\nUsage: `sum_column(\"data.csv\", \"amount\")`"
+          }
+        ]
+      },
+      {
+        "task": "Write a countdown timer component in React.",
+        "median_output_tokens": 178,
+        "median_lines": 18,
+        "median_chars": 479,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 172,
+            "lines": 18,
+            "text": "```tsx\nfunction CountdownTimer({ seconds }: { seconds: number }) {\n  const [left, setLeft] = useState(seconds);\n\n  useEffect(() => {\n    if (left <= 0) return;\n    const t = setTimeout(() => setLeft(left - 1), 1000);\n    return () => clearTimeout(t);\n  }, [left]);\n\n  const m = Math.floor(left / 60)."
+          },
+          {
+            "tokens": 231,
+            "lines": 23,
+            "text": "```jsx\nfunction CountdownTimer({ seconds = 60 }) {\n  const [time, setTime] = React.useState(seconds);\n  const [running, setRunning] = React.useState(false);\n\n  React.useEffect(() => {\n    if (!running) return;\n    if (time === 0) { setRunning(false); return; }\n    const id = setTimeout(() => setTime"
+          },
+          {
+            "tokens": 178,
+            "lines": 18,
+            "text": "```jsx\nfunction CountdownTimer({ seconds = 60, onDone }) {\n  const [left, setLeft] = React.useState(seconds);\n\n  React.useEffect(() => {\n    if (left <= 0) return void onDone?.();\n    const t = setTimeout(() => setLeft(l => l - 1), 1000);\n    return () => clearTimeout(t);\n  }, [left]);\n\n  const m = "
+          }
+        ]
+      },
+      {
+        "task": "Write a simple rate limiter in Python.",
+        "median_output_tokens": 213,
+        "median_lines": 28,
+        "median_chars": 669,
+        "runs": 3,
+        "samples": [
+          {
+            "tokens": 214,
+            "lines": 28,
+            "text": "```python\nimport time\nfrom collections import deque\n\nclass RateLimiter:\n    def __init__(self, max_calls, period):\n        self.max_calls = max_calls\n        self.period = period\n        self.calls = deque()\n\n    def allow(self):\n        now = time.monotonic()\n        while self.calls and now - self"
+          },
+          {
+            "tokens": 179,
+            "lines": 21,
+            "text": "```python\nimport time\nfrom collections import deque\n\nclass RateLimiter:\n    def __init__(self, max_calls, period):\n        self.max_calls = max_calls\n        self.period = period\n        self.calls = deque()\n\n    def allow(self):\n        now = time.monotonic()\n        while self.calls and now - self"
+          },
+          {
+            "tokens": 213,
+            "lines": 28,
+            "text": "```python\nimport time\nfrom collections import deque\n\nclass RateLimiter:\n    def __init__(self, max_calls, period):\n        self.max_calls = max_calls\n        self.period = period\n        self.calls = deque()\n\n    def allow(self):\n        now = time.monotonic()\n        while self.calls and now - self"
+          }
+        ]
+      }
+    ]
+  }
+}

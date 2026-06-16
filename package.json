@@ -1,0 +1,21 @@
+{
+  "name": "kevin",
+  "version": "0.1.0",
+  "description": "Why waste time say lot word when few word do trick?",
+  "license": "MIT",
+  "keywords": ["claude-code", "plugin", "skill", "minimalism", "efficiency"],
+  "skills": [
+    "skills/kevin",
+    "skills/kevin-review",
+    "skills/kevin-audit",
+    "skills/kevin-debt",
+    "skills/kevin-help"
+  ],
+  "hooks": {
+    "postInstall": "node hooks/post-install.js",
+    "preUninstall": "node hooks/pre-uninstall.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
