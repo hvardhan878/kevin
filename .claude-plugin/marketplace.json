@@ -1,0 +1,14 @@
+{
+  "name": "kevin",
+  "owner": {
+    "name": "hvardhan878"
+  },
+  "description": "Make Claude talk less. Write less. Cost less. Go faster.",
+  "plugins": [
+    {
+      "name": "kevin",
+      "source": "./",
+      "description": "Make Claude talk less. Write less. Cost less. Go faster."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "kevin",
+  "description": "Make Claude talk less. Write less. Cost less. Go faster.",
+  "version": "1.0.0",
+  "author": {
+    "name": "hvardhan878"
+  },
+  "homepage": "https://github.com/hvardhan878/kevin",
+  "repository": "https://github.com/hvardhan878/kevin",
+  "license": "MIT"
+}
