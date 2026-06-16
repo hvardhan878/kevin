@@ -61,4 +61,4 @@ Set `"off"` to disable auto-activation.
 
 ## More
 
-Full docs: https://github.com/yourusername/kevin
+Full docs: https://github.com/hvardhan878/kevin

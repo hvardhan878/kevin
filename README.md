@@ -1,30 +1,34 @@
 <h1 align="center">kevin</h1>
 
 <p align="center">
-  <em>"Why waste time say lot word when few word do trick?" — Kevin Malone</em>
+  <em>"Why waste time say lot word when few word do trick?"</em>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/github/stars/yourusername/kevin?style=flat-square&color=111111&label=stars">
-  <img src="https://img.shields.io/github/v/release/yourusername/kevin?style=flat-square&color=111111&label=release">
+  <img src="https://img.shields.io/github/stars/hvardhan878/kevin?style=flat-square&color=111111&label=stars">
+  <img src="https://img.shields.io/github/v/release/hvardhan878/kevin?style=flat-square&color=111111&label=release">
   <img src="https://img.shields.io/badge/works%20with-Claude%20Code-111111?style=flat-square">
   <img src="https://img.shields.io/badge/license-MIT-111111?style=flat-square">
 </p>
 
 <p align="center">
-  <strong>90% fewer output tokens &nbsp;·&nbsp; beats ponytail by 8–19% &nbsp;·&nbsp; cheaper sessions</strong><br>
-  <sub>Median of 3 runs × 5 tasks × 2 models vs baseline and ponytail. Reproduce: <a href="benchmarks/">benchmarks/</a></sub>
+  <strong>−90% output tokens &nbsp;·&nbsp; −93% lines of code &nbsp;·&nbsp; works on Haiku, Sonnet, Opus</strong><br>
+  <sub>3 runs × 5 tasks × 2 models. Reproduce: <a href="benchmarks/">benchmarks/</a></sub>
 </p>
 
 ---
 
-Kevin Malone from The Office had one principle. He applied it to everything. Turns out it also applies to AI coding agents.
+Kevin work at Dunder Mifflin. Kevin not software engineer. Kevin not know what abstract factory pattern is. Kevin not care.
 
-The difference from other minimalism skills: Kevin check your **existing codebase first** before writing anything new. If the code already there, Kevin use it. He also enforce silence — no "let me check", no "I have successfully completed", no step-by-step narration. Just the diff.
+Kevin know one thing: why say lot word when few word do trick?
 
-## Before / after
+Turns out this apply to AI coding agent too.
 
-You ask Claude to add an email validator. Without Kevin:
+Claude say "Let me start by examining the existing codebase structure to understand the current architecture and patterns before proceeding with the implementation." Kevin say `"@" in email`. Same result. Kevin use 8 token. Claude use 580.
+
+You install kevin. Claude become kevin. Claude stop talking so much. You stop paying so much. That it.
+
+## Without kevin
 
 ```
 Let me look at the existing codebase to understand the patterns being used...
@@ -36,172 +40,144 @@ class EmailValidator:
     def __init__(self, check_mx=False): ...
     def validate(self, email): ...
     def normalize(self, email): ...
-    # ... 37 more lines
+    # ... 34 more lines
 
-I've successfully created the EmailValidator class. Here's a summary of what
-was implemented: 1. Regex-based validation 2. Length checks 3. Normalization...
+I've successfully created the EmailValidator class. Here's a summary of
+what was implemented: 1. Regex validation 2. Length checks 3. Normalization...
 ```
 
-Output tokens: **~580**
+**580 tokens. 37 lines. Kevin not impressed.**
 
-With Kevin:
+## With kevin
 
 ```python
 "@" in email and "." in email.split("@")[-1]
-# kevin: naive check. add confirmation email for real validation.
+# kevin: naive check. real validation is the confirmation email.
 ```
 
-Output tokens: **~25**
+**25 tokens. 2 lines. Kevin nod.**
 
-**That's 96% fewer tokens. Not just less code — less everything.**
+## Number
 
-## Numbers
+Kevin not like lot of number. But kevin understand: you need proof. Fine.
 
-Five tasks (email validator, debounce, CSV sum, countdown timer, rate limiter), two models, three arms: no skill, ponytail, kevin. Median of 3 runs per cell.
+Five task. Two model. Baseline vs kevin. Median of 3 run each.
 
-### Output tokens (total — code + narration + explanation)
+### Output token (code + narration + all the "let me" and "I have completed")
 
-| Model | Baseline | ponytail | **kevin** | kevin vs baseline | kevin vs ponytail |
-|-------|----------|----------|-----------|-------------------|-------------------|
-| Haiku | 7,825 | 980 | **797** | **−90%** | **−19%** |
-| Sonnet | 7,413 | 686 | **631** | **−91%** | **−8%** |
+| | Baseline | **kevin** | reduction |
+|--|----------|-----------|-----------|
+| Haiku | 7,825 | **797** | **−90%** |
+| Sonnet | 7,413 | **631** | **−91%** |
 
-### Per task — Haiku (output tokens, median)
+### Per task — Haiku
 
-| Task | Baseline | ponytail | **kevin** | vs ponytail |
-|------|----------|----------|-----------|-------------|
-| Email validator | 1,631 | 163 | **109** | −33% |
-| Debounce | 1,159 | 153 | **80** | −48% |
-| CSV sum | 1,309 | 116 | **91** | −22% |
-| Countdown timer | 2,048 | 265 | **241** | −9% |
-| Rate limiter | 1,678 | 283 | **276** | −2% |
+| Task | Baseline | **kevin** | reduction |
+|------|----------|-----------|-----------|
+| Email validator | 1,631 | **109** | −93% |
+| Debounce | 1,159 | **80** | −93% |
+| CSV sum | 1,309 | **91** | −93% |
+| Countdown timer | 2,048 | **241** | −88% |
+| Rate limiter | 1,678 | **276** | −84% |
 
-### Lines of code — Haiku (median)
+Why so much? Most skill only cut the code. Kevin cut the code AND all the word around the code. Two thing cheaper than one thing. Kevin know math.
 
-| Task | Baseline | ponytail | **kevin** |
-|------|----------|----------|-----------|
-| Email validator | 178 | 15 | **9** |
-| Debounce | 163 | 21 | **11** |
-| CSV sum | 169 | 12 | 13 |
-| Countdown timer | 269 | 35 | **29** |
-| Rate limiter | 237 | 32 | **30** |
+Reproduce: `ANTHROPIC_API_KEY=... python3 benchmarks/benchmark.py`
 
-Kevin beats ponytail on output tokens on every Haiku task. On Sonnet, wins 3/5. The gap is largest on simple tasks (email validator: −33%, debounce: −48%) because those are where baseline narration is proportionally most expensive.
+## Three ladder
 
-Reproduce it yourself: `ANTHROPIC_API_KEY=... python3 benchmarks/benchmark.py`
+Kevin have three ladder. Check ladder before do thing. Stop at first rung that hold.
 
-## How it work
-
-Kevin enforce three ladders before doing anything.
-
-### The Code Ladder
+**Ladder one: before write code**
 ```
-1. Need exist?           → no: skip. say why. one line.
-2. Already in codebase?  → yes: use it. not duplicate.   ← the rung others skip
-3. Stdlib have?          → yes: use it.
-4. Dep installed?        → yes: use it. not add new.
+1. Need exist?           → no. skip. one line why.
+2. Already in codebase?  → yes. use it. not write again.  ← rung others skip
+3. Stdlib have?          → yes. use it.
+4. Dep installed?        → yes. use it. not add new one.
 5. One line?             → one line.
-6. Ok fine: minimum. match existing pattern. boring ok.
+6. Ok fine: minimum. match existing. boring ok. boring work at 3am.
 ```
 
-Rung 2 is what makes kevin different. Other skills check universal knowledge (stdlib, native platform). Kevin also check **your specific codebase** — grep before write. If `formatDate` already exist in `utils/date.ts`, Kevin use it. He not write `formatDateTime` in a new file.
+Rung 2 is new. Other skill check stdlib (same for everyone). Kevin also check *your* codebase. Kevin grep before write. `formatDate` already in `utils/date.ts`? Kevin use it. Kevin not write `formatDateTime` in new file and make you confused.
 
-### The Word Ladder
+**Ladder two: before output word**
 ```
-1. Is code or answer?         → output it.
-2. Is "let me..." or "I'll"?  → delete. just do.
-3. Is "I have completed..."?  → delete. diff is proof.
-4. Must say one thing?        → one line. that it.
+1. Is code? Is answer?         → output it.
+2. Is "let me..." or "I'll..."? → delete. just do.
+3. Is "I have completed..."?    → delete. diff is proof. kevin not take bow.
+4. Must say one thing?          → one line. that it.
 ```
 
-### The File Ladder
+**Ladder three: before make file**
 ```
 1. Fit in existing file?  → put there.
 2. Explicitly asked?      → create.
 3. Used more than once?   → create.
-4. Otherwise              → inline. not new file.
+4. Otherwise              → inline. new file is commitment. kevin not commit to things not needed.
 ```
 
-## Install
+## Get kevin
 
 ### Claude Code
 
 ```
-/plugin marketplace add yourusername/kevin
+/plugin marketplace add hvardhan878/kevin
 /plugin install kevin@kevin
 ```
 
 ### Codex
 
 ```bash
-codex plugin marketplace add yourusername/kevin
+codex plugin marketplace add hvardhan878/kevin
 ```
 
 ### Cursor / Windsurf / Aider
 
-Copy `AGENTS.md` content into your `.cursorrules`, `.windsurfrules`, or agent config.
+Copy content of `AGENTS.md` into `.cursorrules`, `.windsurfrules`, or system prompt.
 
-## Kevin level
+## How much kevin
 
 ```
-/kevin        → classic Kevin. all three ladders. (default)
-/kevin lite   → Kevin trying to be normal. suggest simpler. you pick.
-/kevin ultra  → full Kevin. barely any word. challenge requirement before write.
+/kevin        → classic kevin. all three ladders. default.
+/kevin lite   → kevin trying to be normal. suggest simpler. you pick.
+/kevin ultra  → full kevin. barely any word. challenge requirement before write.
 ```
 
-## Skills
+## What kevin do
 
 | Skill | What |
 |-------|------|
 | `/kevin` | Kevin mode. Less code, less talk, fewer files. |
-| `/kevin-review` | Review diff: `L42: duplicate: already in utils.ts L18.` |
-| `/kevin-audit` | Whole repo ranked by waste. Net: -N lines, -M files, -P deps. |
-| `/kevin-debt` | Harvest all `// kevin:` shortcuts into ledger. |
-| `/kevin-help` | This but shorter. |
+| `/kevin-review` | Review diff. Find waste. `L42: duplicate: already in utils.ts.` |
+| `/kevin-audit` | Whole repo. Ranked. Net: −N lines, −M files, −P deps. |
+| `/kevin-debt` | Harvest all `// kevin:` comments into ledger. |
+| `/kevin-help` | This. But shorter. |
 
-## The comment marker
+## The `// kevin:` comment
 
-Kevin mark intentional shortcuts so they don't rot:
+Kevin mark intentional shortcut. So it not rot into permanent.
 
 ```python
-# kevin: in-memory only. add redis when multi-instance.
+# kevin: in-memory store. add redis when data need survive restart.
 cache = {}
 
-# kevin: global lock. per-user locks when throughput is actual problem.
+# kevin: global lock. ceiling: contention under load. upgrade when profiler say so.
 lock = threading.Lock()
 ```
 
-Harvest with `/kevin-debt`.
+Collect with `/kevin-debt`.
 
-## Kevin not lazy about
+## Kevin not cut corner on
 
-Input validation at trust boundaries. Error handling that prevent data loss. Security. Accessibility. Things you explicitly ask for. Non-trivial logic leave one runnable check — smallest thing that fail if logic break.
+Input validation at trust boundaries. Error handling that prevent data loss. Security. Accessibility. Things you explicitly ask for.
 
-Kevin lazy, not reckless.
-
-## vs ponytail
-
-Kevin love ponytail. They complement each other.
-
-| | ponytail | kevin |
-|---|---|---|
-| Code minimalism | ✓ | ✓ |
-| Codebase-first check | ✗ | **✓** |
-| Narration reduction | ✗ | **✓** |
-| File count discipline | ✗ | **✓** |
-| Comment marker | `// ponytail:` | `// kevin:` |
-
-Run both. ponytail handle the code. Kevin handle the rest.
-
-## Why Kevin
-
-Kevin Malone discovered something that took senior engineers years to learn: most words are waste. Most code is waste. The best response is the one that say exactly what need to be said, nothing more.
-
-He say few word. He still get point across.
-
-Kevin not dumb. Kevin efficient.
+Kevin also know: non-trivial logic need one runnable check. Smallest thing that fail if logic break. That it. No framework. No fixture. Trivial one-liner need no test. Kevin lazy, not reckless.
 
 ## Roadmap
 
-1. **VS Code / JetBrains extension** — kevin badge showing token savings per session
-2. **Multi-agent support** — Codex, Gemini CLI, Cursor agent mode
+1. **More agent** — Codex, Gemini CLI, Cursor agent mode
+2. **Kevin score** — badge showing token saving per session
+
+---
+
+*Kevin not dumb. Kevin efficient.*

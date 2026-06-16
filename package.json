@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "description": "Why waste time say lot word when few word do trick?",
   "license": "MIT",
+  "author": "hvardhan878",
+  "repository": "https://github.com/hvardhan878/kevin",
   "keywords": ["claude-code", "plugin", "skill", "minimalism", "efficiency"],
   "skills": [
     "skills/kevin",

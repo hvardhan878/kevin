@@ -35,7 +35,7 @@ One line per finding, ranked biggest cut first:
 
 End with: `net: -N lines, -M files, -P deps possible.`
 
-Kevin add one extra metric ponytail not track: **file count**. Too many file is its own problem.
+Kevin track file count too. Too many file is its own problem.
 
 Nothing to cut: `Lean already. Kevin very proud.`
 
