@@ -1,20 +1,17 @@
-<h1 align="center">kevin</h1>
+# kevin
 
-<p align="center">
-  <em>"Why waste time say lot word when few word do trick?"</em>
-</p>
+> *"Why waste time say lot word when few word do trick?"*
 
-<p align="center">
-  <img src="https://img.shields.io/github/stars/hvardhan878/kevin?style=flat-square&color=111111&label=stars">
-  <img src="https://img.shields.io/github/v/release/hvardhan878/kevin?style=flat-square&color=111111&label=release">
-  <img src="https://img.shields.io/badge/works%20with-Claude%20Code-111111?style=flat-square">
-  <img src="https://img.shields.io/badge/license-MIT-111111?style=flat-square">
-</p>
+[![stars](https://img.shields.io/github/stars/hvardhan878/kevin?style=flat-square)](https://github.com/hvardhan878/kevin) [![MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
 
-<p align="center">
-  <strong>−90% output tokens &nbsp;·&nbsp; −93% lines of code &nbsp;·&nbsp; works on Haiku, Sonnet, Opus</strong><br>
-  <sub>3 runs × 5 tasks × 2 models. Reproduce: <a href="benchmarks/">benchmarks/</a></sub>
-</p>
+A Claude Code skill. Make Claude talk less. Write less. Cost less. Go faster.
+
+```
+before   1,631 tokens · 32 sec · $0.024 per task
+after      109 tokens ·  2 sec · $0.002 per task
+```
+
+**−90% cost. −93% lines. Up to 15× faster. Works on Haiku, Sonnet, Opus.**
 
 ---
 
@@ -63,24 +60,32 @@ Kevin not like lot of number. But kevin understand: you need proof. Fine.
 
 Five task. Two model. Baseline vs kevin. Median of 3 run each.
 
-### Output token (code + narration + all the "let me" and "I have completed")
+### Token · cost · speed (Haiku, per task, median of 3 runs)
 
-| | Baseline | **kevin** | reduction |
-|--|----------|-----------|-----------|
-| Haiku | 7,825 | **797** | **−90%** |
-| Sonnet | 7,413 | **631** | **−91%** |
+| Task | Tokens | After kevin | Cost | After kevin | Speed |
+|------|--------|-------------|------|-------------|-------|
+| Email validator | 1,631 | **109** | $0.0020 | **$0.0001** | 15× faster |
+| Debounce | 1,159 | **80** | $0.0014 | **$0.0001** | 14× faster |
+| CSV sum | 1,309 | **91** | $0.0016 | **$0.0001** | 14× faster |
+| Countdown timer | 2,048 | **241** | $0.0026 | **$0.0003** | 8× faster |
+| Rate limiter | 1,678 | **276** | $0.0021 | **$0.0003** | 6× faster |
+| **Total** | **7,825** | **797** | **$0.0098** | **$0.0009** | **−91% cost** |
 
-### Per task — Haiku
+*Cost at Haiku output pricing ($1.25/M tokens). Speed from token count ratio.*
 
-| Task | Baseline | **kevin** | reduction |
-|------|----------|-----------|-----------|
-| Email validator | 1,631 | **109** | −93% |
-| Debounce | 1,159 | **80** | −93% |
-| CSV sum | 1,309 | **91** | −93% |
-| Countdown timer | 2,048 | **241** | −88% |
-| Rate limiter | 1,678 | **276** | −84% |
+### Lines of code (Haiku, median)
 
-Why so much? Most skill only cut the code. Kevin cut the code AND all the word around the code. Two thing cheaper than one thing. Kevin know math.
+| Task | Before | After | |
+|------|--------|-------|-|
+| Email validator | 178 | **9** | −95% |
+| Debounce | 163 | **11** | −93% |
+| CSV sum | 169 | 13 | −92% |
+| Countdown timer | 269 | **29** | −89% |
+| Rate limiter | 237 | **30** | −87% |
+
+Why so much? Most skill cut the code. Kevin cut the code AND the word around the code. "Let me check..." cost money. "I have successfully completed..." cost money. Kevin delete both. Two thing cheaper than one thing. Kevin know math.
+
+On $200/month Max plan: kevin mean roughly 10× more work before you hit limit. Same budget. More done.
 
 Reproduce: `ANTHROPIC_API_KEY=... python3 benchmarks/benchmark.py`
 
