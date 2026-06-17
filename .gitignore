@@ -12,6 +12,7 @@ logs/
 kevin-*.kevin-*.json
 benchmarks/swe_bench_results.json
 benchmarks/swe_bench/predictions_*.json
+benchmarks/correctness_results.json
 
 # OS / editor
 .DS_Store
