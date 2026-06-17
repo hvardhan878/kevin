@@ -7,11 +7,11 @@
 A Claude Code skill. Make Claude talk less. Write less. Cost less. Go faster.
 
 ```
-before   1,631 tokens · 32 sec · $0.024 per task
-after      109 tokens ·  2 sec · $0.002 per task
+without kevin   long responses · lots of narration · more files than needed
+with kevin      code first · −50–80% tokens · fewer files · Kevin voice
 ```
 
-**−90% cost. −93% lines. Up to 15× faster. Works on Haiku, Sonnet, Opus.**
+**Structured. Terse. Codebase-aware. Works on Haiku, Sonnet, Opus.**
 
 ---
 
@@ -58,36 +58,32 @@ what was implemented: 1. Regex validation 2. Length checks 3. Normalization...
 
 Kevin not like lot of number. But kevin understand: you need proof. Fine.
 
-Five task. Two model. Baseline vs kevin. Median of 3 run each.
+Five task. Three condition. Automated correctness check (`node test.js`, exit code). No manual grading.
 
-### Token · cost · speed (Haiku, per task, median of 3 runs)
+### Correctness suite (Haiku, single run)
 
-| Task | Tokens | After kevin | Cost | After kevin | Speed |
-|------|--------|-------------|------|-------------|-------|
-| Email validator | 1,631 | **109** | $0.0020 | **$0.0001** | 15× faster |
-| Debounce | 1,159 | **80** | $0.0014 | **$0.0001** | 14× faster |
-| CSV sum | 1,309 | **91** | $0.0016 | **$0.0001** | 14× faster |
-| Countdown timer | 2,048 | **241** | $0.0026 | **$0.0003** | 8× faster |
-| Rate limiter | 1,678 | **276** | $0.0021 | **$0.0003** | 6× faster |
-| **Total** | **7,825** | **797** | **$0.0098** | **$0.0009** | **−91% cost** |
+| Task | Baseline | Kevin |
+|------|:--------:|:-----:|
+| Debounce | ✅ | ✅ |
+| Rate limiter | ✅ | ✅ |
+| Codebase reuse | ❌ | ❌ |
+| Pub/sub (10 assertions) | ✅ | ✅ |
+| Binary search | ✅ | ✅ |
+| **Correct** | **4/5** | **4/5** |
 
-*Cost at Haiku output pricing ($1.25/M tokens). Speed from token count ratio.*
+### Token · cost (Haiku, same run)
 
-### Lines of code (Haiku, median)
+| | Baseline | Kevin |
+|---|------:|--------:|
+| Total tokens | 2,198 | 797 |
+| Code tokens | 1,646 | 630 |
+| Prose tokens | 509 | 128 |
+| Code lines | 167 | 65 |
+| Cost (5 tasks) | $0.0027 | $0.0010 |
 
-| Task | Before | After | |
-|------|--------|-------|-|
-| Email validator | 178 | **9** | −95% |
-| Debounce | 163 | **11** | −93% |
-| CSV sum | 169 | 13 | −92% |
-| Countdown timer | 269 | **29** | −89% |
-| Rate limiter | 237 | **30** | −87% |
+Kevin cuts tokens across the board — less code written, less narration around it. The prose_tok drop shows what changes: baseline spends hundreds of tokens on "Let me start by examining..." and "I have successfully implemented...". Kevin deletes both.
 
-Why so much? Most skill cut the code. Kevin cut the code AND the word around the code. "Let me check..." cost money. "I have successfully completed..." cost money. Kevin delete both. Two thing cheaper than one thing. Kevin know math.
-
-On $200/month Max plan: kevin mean roughly 10× more work before you hit limit. Same budget. More done.
-
-Reproduce: `ANTHROPIC_API_KEY=... python3 benchmarks/benchmark.py`
+Reproduce: `ANTHROPIC_API_KEY=... python3 benchmarks/run_all.py --skip-swe`
 
 ## Three ladder
 
@@ -177,6 +173,40 @@ Collect with `/kevin-debt`.
 Input validation at trust boundaries. Error handling that prevent data loss. Security. Accessibility. Things you explicitly ask for.
 
 Kevin also know: non-trivial logic need one runnable check. Smallest thing that fail if logic break. That it. No framework. No fixture. Trivial one-liner need no test. Kevin lazy, not reckless.
+
+## FAQ
+
+**Does this actually work or is it a gimmick?**
+
+Three ladder work. Kevin enforce: check if needed, check if already exist, check if new file justified. That is real discipline that Claude not apply by default. The voice is the delivery mechanism — Kevin not just persona, Kevin is a decision framework with a face on it.
+
+**Why does Claude listen to Kevin?**
+
+System prompt. Kevin live in AGENTS.md and SKILL.md. When you invoke `/kevin`, Claude receive the full ladder + voice rules as the assistant persona. It follow the ladder the same way it would follow any well-specified instruction. Kevin just happen to be more fun to read than "be concise."
+
+**What does the codebase rung actually do?**
+
+Before Claude write a function, Kevin check: does this already exist here? Not in stdlib — in *your* repo. If `utils/date.ts` already has `formatDate`, Kevin use it. Kevin not write `formatTimestamp` in a new file and leave you with two functions that do the same thing. This rung only fires in agentic sessions where Claude can actually read your files. Single-shot API calls don't have that access.
+
+**Does it work on Opus / Sonnet / Haiku?**
+
+Yes. Kevin is a system prompt, not a fine-tune. Works on any model that follows instructions. Stronger model = better ladder adherence. Kevin on Haiku is terse. Kevin on Opus is terse and occasionally wise.
+
+**What if I want Kevin to stop?**
+
+"Stop kevin" or "normal mode". Resume with `/kevin`. Kevin not hold grudge.
+
+**Does kevin make Claude worse at coding?**
+
+Not on tasks it can handle in fewer lines. Kevin push Claude toward the minimum correct solution — that is usually fine. Where kevin can hurt: very complex tasks that genuinely need scaffolding and explanation. For those, use `/kevin lite` or turn it off.
+
+**Why does kevin sometimes use more tokens than pure terse alternatives?**
+
+Kevin talk. Short sentences, but real sentences. "Not needed. Add when profiler say so." — that is prose. Pure code-only alternatives output nothing but the function. Kevin chose legible over minimal. If you want absolute minimum output with zero explanation, `/kevin ultra` gets closer.
+
+**Is this open source?**
+
+Yes. MIT. Fork it, rename it, make it Dwight. Kevin not precious about attribution.
 
 ## Roadmap
 
