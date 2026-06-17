@@ -213,6 +213,7 @@ def main() -> None:
                 "instance_id":   tid,
                 "condition":     cond,
                 "resolved":      resolved,
+                "model_patch":   patch,
                 "output_tokens": api["output_tokens"],
                 "input_tokens":  api["input_tokens"],
                 "cost_usd":      api["cost_usd"],
@@ -223,10 +224,32 @@ def main() -> None:
             out = ROOT / "benchmarks" / "swe_bench_results.json"
             out.write_text(json.dumps(results, indent=2), encoding="utf-8")
 
-    # Final save + summary
+    # Final save
     out = ROOT / "benchmarks" / "swe_bench_results.json"
     out.write_text(json.dumps(results, indent=2), encoding="utf-8")
     print(f"\nResults saved to {out}")
+
+    # Write per-condition predictions files for swebench CLI evaluation
+    preds_dir = ROOT / "benchmarks" / "swe_bench"
+    for cond in CONDITIONS:
+        preds = [
+            {
+                "instance_id":        r["instance_id"],
+                "model_patch":        r.get("model_patch", ""),
+                "model_name_or_path": f"kevin-{cond}",
+            }
+            for r in results if r["condition"] == cond and not r.get("dry_run")
+        ]
+        if preds:
+            p = preds_dir / f"predictions_{cond}.json"
+            p.write_text(json.dumps(preds, indent=2), encoding="utf-8")
+            print(f"Predictions written to {p}")
+
+    print("\nTo evaluate with swebench CLI:")
+    for cond in CONDITIONS:
+        print(f"  python3.11 -m swebench.harness.run_evaluation \\")
+        print(f"    --predictions_path benchmarks/swe_bench/predictions_{cond}.json \\")
+        print(f"    --run_id kevin-{cond} --cache_level env")
 
     if any(not r.get("dry_run") for r in results):
         stats: dict = defaultdict(lambda: {"res": 0, "total": 0, "tokens": 0, "cost": 0.0})

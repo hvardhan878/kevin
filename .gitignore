@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+.venv/
+venv/
+.env
+
+# SWE-bench harness output
+logs/
+kevin-*.kevin-*.json
+benchmarks/swe_bench_results.json
+benchmarks/swe_bench/predictions_*.json
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/

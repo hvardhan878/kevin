@@ -1,5 +1,10 @@
 # kevin
 
+<p align="center">
+  <img src="assets/kevin.jpg" alt="Kevin Malone" width="200"><br>
+  <sub><a href="https://commons.wikimedia.org/wiki/File:Brian_Baumgartner_LF.JPG">Brian Baumgartner</a> · CC BY-SA 2.5</sub>
+</p>
+
 > *"Why waste time say lot word when few word do trick?"*
 
 [![stars](https://img.shields.io/github/stars/hvardhan878/kevin?style=flat-square)](https://github.com/hvardhan878/kevin) [![MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
@@ -7,11 +12,11 @@
 A Claude Code skill. Make Claude talk less. Write less. Cost less. Go faster.
 
 ```
-without kevin   long responses · lots of narration · more files than needed
-with kevin      code first · −50–80% tokens · fewer files · Kevin voice
+before   verbose · lots of narration · more files than needed
+after    code first · fewer files · Kevin voice
 ```
 
-**Structured. Terse. Codebase-aware. Works on Haiku, Sonnet, Opus.**
+**−50–80% tokens. −50–75% cost. Up to 3× faster. Works on Haiku, Sonnet, Opus.**
 
 ---
 
@@ -58,7 +63,7 @@ what was implemented: 1. Regex validation 2. Length checks 3. Normalization...
 
 Kevin not like lot of number. But kevin understand: you need proof. Fine.
 
-Five task. Three condition. Automated correctness check (`node test.js`, exit code). No manual grading.
+Five task. Two condition. Automated correctness check (`node test.js`, exit code). No manual grading.
 
 ### Correctness suite (Haiku, single run)
 
@@ -83,7 +88,7 @@ Five task. Three condition. Automated correctness check (`node test.js`, exit co
 
 Kevin cuts tokens across the board — less code written, less narration around it. The prose_tok drop shows what changes: baseline spends hundreds of tokens on "Let me start by examining..." and "I have successfully implemented...". Kevin deletes both.
 
-Reproduce: `ANTHROPIC_API_KEY=... python3 benchmarks/run_all.py --skip-swe`
+Reproduce: `ANTHROPIC_API_KEY=... python3 benchmarks/correctness/run.py`
 
 ## Three ladder
 
@@ -203,6 +208,14 @@ Not on tasks it can handle in fewer lines. Kevin push Claude toward the minimum 
 **Why does kevin sometimes use more tokens than pure terse alternatives?**
 
 Kevin talk. Short sentences, but real sentences. "Not needed. Add when profiler say so." — that is prose. Pure code-only alternatives output nothing but the function. Kevin chose legible over minimal. If you want absolute minimum output with zero explanation, `/kevin ultra` gets closer.
+
+**How is this different from caveman?**
+
+Caveman output zero prose. Pure code. No structured thinking, no ladder, no decision before write. Kevin check three things before writing anything: is it needed, does it already exist in your codebase, does it need a new file. Caveman just short. Kevin short AND disciplined. Also Kevin talk — "Not needed. Add when profiler say so." Caveman say nothing. Different tool.
+
+**How is this different from ponytail?**
+
+Ponytail has a copy ladder: check stdlib, check installed dep, copy before write. Kevin takes that idea and adds two things ponytail doesn't have. First: check *your specific codebase*, not just universal stdlib. Second: a word ladder that cuts narration, which ponytail doesn't touch. Ponytail is quiet and focused on code minimalism. Kevin is that plus codebase awareness plus a personality.
 
 **Is this open source?**
 
