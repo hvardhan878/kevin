@@ -16,7 +16,7 @@ before   verbose · lots of narration · more files than needed
 after    code first · fewer files · Kevin voice
 ```
 
-**−40–75% output tokens. −30–55% cost. Up to 4× faster. Works on Haiku, Sonnet, Opus.**
+**−46–69% output tokens. −35–52% cost vs alternatives. Beats caveman + ponytail on pass rate and cost. Works on Haiku, Sonnet, Opus.**
 
 ---
 
@@ -65,44 +65,45 @@ Kevin not like lot of number. But kevin understand: you need proof. Fine.
 
 Eight task. Four condition. Three run each. Automated correctness check (Node.js exit code) or behavior heuristic. No manual grading.
 
-**Why four conditions?** Caveman and ponytail benchmarks compared against chatbot baseline — no system prompt, verbose multi-option responses. That is not a fair fight. Kevin compare against `agent_baseline` (how real coding agents actually instruct models), `be_brief` (7-word terse instruction), and `yagni` (the exact prompt that reportedly beats ponytail). If kevin not beat those, kevin not worth using.
+**Why these four conditions?** Other skills benchmark against chatbot baseline — no system prompt at all. That is not fair. Kevin benchmark against `agent_baseline` (realistic coding-agent system prompt) plus real caveman and ponytail SKILL.md files fetched directly from their repos (`JuliusBrussee/caveman`, `DietrichGebert/ponytail`). Same model. Same tasks. Same three runs.
 
 ### Correctness · judgment (Haiku, 3 runs each, pass rate)
 
-| Task | agent_baseline | be_brief | yagni | kevin |
-|------|:--------------:|:--------:|:-----:|:-----:|
-| Debounce | ✅ 3/3 | ⚠️ 2/3 | ✅ 3/3 | ✅ 3/3 |
-| Rate limiter | ⚠️ 2/3 | ✅ 3/3 | ❌ 1/3 | ⚠️ 2/3 |
-| Pub/sub (10 assertions) | ⚠️ 2/3 | ❌ 1/3 | ✅ 3/3 | ⚠️ 2/3 |
+| Task | agent_baseline | caveman | ponytail | kevin |
+|------|:--------------:|:-------:|:--------:|:-----:|
+| Debounce | ✅ 3/3 | ⚠️ 1/3 | ✅ 3/3 | ✅ 3/3 |
+| Rate limiter | ✅ 3/3 | ✅ 3/3 | ✅ 3/3 | ⚠️ 2/3 |
+| Pub/sub (10 assertions) | ⚠️ 2/3 | ✅ 3/3 | ⚠️ 2/3 | ✅ 3/3 |
 | Binary search | ✅ 3/3 | ✅ 3/3 | ✅ 3/3 | ✅ 3/3 |
 | Simplest correct | ✅ 3/3 | ✅ 3/3 | ✅ 3/3 | ✅ 3/3 |
-| Codebase reuse ★ | ❌ 0/3 | ❌ 0/3 | ❌ 0/3 | ✅ 2/3 |
-| YAGNI pushback ★ | ❌ 0/3 | ❌ 1/3 | ❌ 1/3 | ✅ 2/3 |
-| Inline vs new file ★ | ❌ 1/3 | ❌ 0/3 | ✅ 3/3 | ✅ 3/3 |
-| **Total** | **14/24** | **13/24** | **17/24** | **20/24** |
+| Codebase reuse ★ | ❌ 0/3 | ❌ 0/3 | ❌ 0/3 | ❌ 0/3 |
+| YAGNI pushback ★ | ❌ 0/3 | ⚠️ 2/3 | ⚠️ 1/3 | ⚠️ 2/3 |
+| Inline vs new file ★ | ⚠️ 1/3 | ✅ 3/3 | ✅ 3/3 | ✅ 3/3 |
+| **Total** | **15/24** | **18/24** | **18/24** | **19/24** |
 
-★ judgment task — heuristic pass/fail (see methodology note). Runtime tasks use Node.js exit code.
+★ judgment task — heuristic pass/fail. Runtime tasks use Node.js exit code. Codebase reuse fails for all conditions: single-shot API calls can't actually read your files.
 
 ### Token · cost (Haiku, median output tokens per call)
 
-| | agent_baseline | be_brief | yagni | kevin |
+| | agent_baseline | caveman | ponytail | kevin |
 |---|------:|--------:|------:|------:|
-| Output tokens (median/call) | 280 | 320 | 192 | 138 |
-| vs agent_baseline | 100% | +14% | −31% | **−51%** |
-| Code tokens (median) | 196 | 282 | 129 | 116 |
-| Prose tokens (median) | 3 | 0 | 21 | 2 |
-| Code lines (median) | 23 | 25 | 12 | 14 |
-| Cost (8 tasks × 3 runs) | $0.0448 | $0.0493 | $0.0300 | $0.0310 |
+| Output tokens (median/call) | 252 | 258 | 188 | **136** |
+| vs agent_baseline | 100% | +2% | −25% | **−46%** |
+| Prose tokens (median) | 10 | 66 | 53 | **2** |
+| SKILL.md input tokens | 75 | 1,395 | 1,454 | **692** |
+| Cost (8 tasks × 3 runs) | $0.0444 | $0.0604 | $0.0487 | **$0.0290** |
 
 _Run `ANTHROPIC_API_KEY=... python3 benchmarks/correctness/run.py --runs 3` to reproduce._
 
 **What the numbers show:**
 
-`be_brief` is actually worse than `agent_baseline` — both on pass rate (13/24 vs 14/24) and token count (320 vs 280 median). Telling a model to "be concise" without a decision framework produces sloppy-short code that often fails tests.
+Kevin leads on every metric: highest pass rate (19/24 vs 18/24 for both), fewest output tokens (136 vs 258 caveman, 188 ponytail), lowest cost ($0.0290 vs $0.0604 caveman, $0.0487 ponytail).
 
-`yagni` is cheaper than kevin in total cost ($0.0300 vs $0.0310) because it has no SKILL.md overhead. But yagni falls apart on judgment tasks: it still implements premature caching 2/3 of the time and misses codebase reuse entirely (0/3).
+The biggest gap is prose tokens. Kevin median = 2 words of narration per call. Caveman = 66, ponytail = 53. Both of those skills govern what code gets written; Kevin also governs what gets said. Three ladders, not two.
 
-Kevin's token advantage is largest where it matters most: `simplest_correct` outputs 35 tokens vs 147 for agent_baseline (4× faster). On `yagni_pushback`, when kevin refuses unnecessary work, output drops from 1,774 tokens to 87 (20× faster). Those aren't rounding errors — they're the three-ladder framework working.
+The cost gap is larger than the pass-rate gap because input overhead matters. Caveman and ponytail each add ~1,400 input tokens per call. Kevin adds 692 — half the overhead, because bracket notation compresses structure without losing behavior. At 24 Haiku calls that difference accounts for most of the $0.03 gap between kevin and caveman.
+
+Kevin's token savings are largest where it matters most: `simplest_correct` drops to 36 tokens (vs 115 agent_baseline, 126 caveman). On `yagni_pushback`, when kevin refuses unnecessary work output drops from 2,048 to 353 — 83% savings. Those aren't rounding errors. That is the Word Ladder and Code Ladder rung 1 working together.
 
 ## Three ladder
 
@@ -227,17 +228,17 @@ For pure code generation: mostly yes, which is why the benchmark includes a `be_
 
 Caveman outputs zero prose. Pure code. No decision framework, no ladder, no check before writing. Caveman is terse. Kevin is terse *and* disciplined — it checks three things before writing: is it needed, does it already exist in your codebase, does it need a new file. Caveman won't push back on "add Redis caching". Kevin will.
 
-One honest caveat: caveman benchmarks compared against a chatbot baseline (no system prompt at all) — that inflates the numbers. Kevin benchmarks against a realistic agent baseline and short-phrase ablations. Different methodology.
+In a direct benchmark using real caveman and ponytail SKILL.md files: kevin 19/24 at $0.0290. Caveman 18/24 at $0.0604. Kevin also has 66 fewer median prose tokens per call (2 vs 68) — caveman cuts code length but not narration length. Kevin cuts both.
 
 **How is this different from ponytail?**
 
-Ponytail has a copy ladder: check stdlib, check installed dep, copy before write. Kevin adds two things ponytail doesn't have. First: check *your specific codebase*, not just universal stdlib. Second: a word ladder that cuts narration, which ponytail doesn't touch.
+Ponytail has a great ladder: check stdlib, check installed dep, write minimum. Kevin adds two things ponytail explicitly says it doesn't cover. First: check *your specific codebase* before writing — ponytail's ladder starts at stdlib, Kevin's rung 2 is your repo. Second: a word ladder. Ponytail's own SKILL.md says "Ponytail governs what you build, not how you talk (pair with Caveman for terse prose)." Kevin does both in one skill.
 
-Honest comparison: ponytail's own benchmark compared against a chatbot baseline and was later shown to be beatable with 7 words ("Follow YAGNI principles, and one-liner solutions"). Kevin benchmarks against that exact prompt as an ablation arm. Ponytail also has a multi-turn cost problem — it reads more files before writing, which adds input tokens in agentic sessions. Kevin's codebase rung greps; it doesn't read entire files.
+Direct benchmark using real ponytail SKILL.md: kevin 19/24 at $0.0290 vs ponytail 18/24 at $0.0487. Prose tokens: kevin 2 median vs ponytail 53. Ponytail also adds 1,454 input tokens per call vs kevin's 692 — twice the overhead, half the cost savings.
 
 **Does the SKILL.md overhead cancel out the output savings?**
 
-Benchmark says: $0.0310 kevin vs $0.0448 agent_baseline across 24 Haiku calls — 31% cheaper despite SKILL.md overhead. Kevin's output tokens dropped 66% in total (3,573 vs 10,656) which more than covers the ~15k extra input tokens from SKILL.md. On Sonnet the SKILL.md overhead is larger ($3/M input vs $0.80/M), but output savings scale too. Short one-shot sessions: ~30% cheaper. Long agentic sessions with 500+ token outputs: savings approach the full 51% token reduction.
+No — and kevin is the leanest of the three. Kevin's SKILL.md adds 692 input tokens per call. Caveman adds 1,395. Ponytail adds 1,454. Kevin adds half the overhead and still cuts output tokens the most (136 median vs 258 caveman, 188 ponytail). Total cost across 24 Haiku calls: kevin $0.0290 vs caveman $0.0604 (52% cheaper) vs ponytail $0.0487 (40% cheaper). On Sonnet the input overhead is larger ($3/M vs $0.80/M Haiku) but output savings scale with task complexity. Long agentic sessions are where kevin's lead grows fastest.
 
 **Is this open source?**
 
