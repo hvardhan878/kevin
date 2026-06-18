@@ -18,3 +18,4 @@ benchmarks/correctness_results.json
 .DS_Store
 .idea/
 .vscode/
+.claude/

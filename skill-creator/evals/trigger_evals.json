@@ -1,0 +1,82 @@
+[
+  {
+    "query": "/kevin",
+    "should_trigger": true
+  },
+  {
+    "query": "be kevin",
+    "should_trigger": true
+  },
+  {
+    "query": "dude you keep writing like 40 lines when it could literally be one. stop explaining everything and just write the code",
+    "should_trigger": true
+  },
+  {
+    "query": "few word do trick. add a debounce to the search input in src/components/SearchBar.tsx",
+    "should_trigger": true
+  },
+  {
+    "query": "why say lot word when few word do trick — refactor the UserService to remove the dead methods",
+    "should_trigger": true
+  },
+  {
+    "query": "you wrote a new formatDate utility but we literally have one in src/utils/dates.ts already. stop rewriting code that exists in this codebase",
+    "should_trigger": true
+  },
+  {
+    "query": "shut up and just give me the code. no explanation. no preamble. add rate limiting to /api/auth/login",
+    "should_trigger": true
+  },
+  {
+    "query": "less word please. every response is like 500 tokens of explanation for a 3 line change",
+    "should_trigger": true
+  },
+  {
+    "query": "minimal mode — implement the pub/sub pattern for the notification system, shortest possible",
+    "should_trigger": true
+  },
+  {
+    "query": "stop creating new files for everything. we have utils.ts, just put the helper there. kevin mode",
+    "should_trigger": true
+  },
+  {
+    "query": "what were kevin malone's best moments in the office? the character from the TV show",
+    "should_trigger": false
+  },
+  {
+    "query": "can you write detailed inline comments for this authentication middleware? i want future devs to understand every decision",
+    "should_trigger": false
+  },
+  {
+    "query": "give me a thorough explanation of how react's reconciliation algorithm works, with examples",
+    "should_trigger": false
+  },
+  {
+    "query": "we want to minimize our npm dependencies — audit package.json and tell me what we can remove",
+    "should_trigger": false
+  },
+  {
+    "query": "what does YAGNI mean and when should you apply it in a codebase?",
+    "should_trigger": false
+  },
+  {
+    "query": "please do a comprehensive code review of my PR. i want detailed feedback on architecture, naming, test coverage, and anything you'd change",
+    "should_trigger": false
+  },
+  {
+    "query": "write full jsdoc comments for every function in src/api/client.ts, including @param and @returns for each one",
+    "should_trigger": false
+  },
+  {
+    "query": "the verbose logging in our prod server is filling up disk space. help me reduce the log volume in logger.ts",
+    "should_trigger": false
+  },
+  {
+    "query": "i need a minimal docker setup for a node app — just enough to run in prod, no dev tooling",
+    "should_trigger": false
+  },
+  {
+    "query": "explain the difference between synchronous and asynchronous code in javascript, step by step for a beginner",
+    "should_trigger": false
+  }
+]

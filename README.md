@@ -30,6 +30,12 @@ Claude say "Let me start by examining the existing codebase structure to underst
 
 You install kevin. Claude become kevin. Claude stop talking so much. You stop paying so much. That it.
 
+<p align="center">
+  <img src="assets/kevin-demo.gif" alt="Kevin mode demo — email validation" width="700">
+</p>
+
+<i>Illustrative demo. Same scenario as <a href="examples/email-validator.md">email-validator example</a>. Regenerate: <code>python3 scripts/record-kevin-demo.py</code>.</i>
+
 ## Without kevin
 
 ```
